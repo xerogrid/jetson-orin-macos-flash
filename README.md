@@ -11,18 +11,28 @@ Host: Apple Silicon Mac (arm64), macOS 27.
 |---|---|
 | Hardware identity | Orin (confirmed by owner after Nano / Xavier NX mix-up) |
 | USB live on this Mac | Not seen. No NVIDIA `0955` device. |
-| Flash from macOS | **Not solved yet.** This repo records findings first. |
+| Flash from macOS | **Jetson ISO USB installer** (JetPack 7.2.1). Native SDK Manager is still impossible. |
 
-NVIDIA SDK Manager and `l4t_initrd_flash.sh` are **x86_64 Linux** tools. They do not run natively on macOS. Docker Desktop on Mac does not pass USB through to a Linux container. That is the core problem this repo exists to solve.
+NVIDIA SDK Manager and `l4t_initrd_flash.sh` stay **x86_64 Linux**. Do not use them on this Mac. Docker Desktop here has no USB passthrough.
+
+The supported Mac path: write NVIDIA’s **Jetson ISO** to a USB stick, boot the Orin from that stick, install onto NVMe or microSD. See [docs/macos-iso-flash.md](docs/macos-iso-flash.md).
+
+```bash
+./scripts/write-jetson-iso.sh ~/Downloads/jetsoninstaller-r39.2.1.iso
+./scripts/scan-nvidia-usb.sh
+```
 
 ## Repo layout
 
 ```
-README.md                 this file
-findings/hardware.md      board identity, power, ports, storage
-findings/recovery.md      Force Recovery steps and USB IDs
-findings/macos-host.md    what this Mac actually saw
-findings/flash-blockers.md why native macOS flash fails
+README.md                   this file
+docs/macos-iso-flash.md     JetPack 7.2.1 ISO procedure on macOS
+scripts/write-jetson-iso.sh image a USB stick with dd
+scripts/scan-nvidia-usb.sh  look for NVIDIA APX on this Mac
+findings/hardware.md        board identity, power, ports, storage
+findings/recovery.md        Force Recovery steps and USB IDs
+findings/macos-host.md      what this Mac actually saw
+findings/flash-blockers.md  why SDK Manager cannot run here
 ```
 
 ## What “recognize” means
