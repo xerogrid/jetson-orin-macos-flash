@@ -6,7 +6,8 @@ RAM-only device inspection, guarded QSPI/NVMe flashing, expansion and reboot
 verification. The working Xavier NX boots L4T R35.6.4 from its full 4 TB NVMe.
 No private keys, passwords, VM disks or flash images belong in Git.
 
-Next project: [Droid Foundry Pit Droid vision handoff](docs/pit-droid-vision-handoff.md).
+Completed live project: [Droid Foundry Pit Droid vision handoff](docs/pit-droid-vision-handoff.md),
+with its published deployment runbook, acceptance checklist and future-feature backlog.
 
 ## Current hardware correction — 2026-09-06
 

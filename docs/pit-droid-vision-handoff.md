@@ -1,4 +1,25 @@
-# Pit Droid machine-vision field test
+# Pit Droid project handoff — post-show
+
+The owner reported successful live operation and requested the complete package
+for other systems. Current source is the published
+[`pit/vision-track` branch of Droid-Foundry](https://github.com/xerogrid/Droid-Foundry/tree/pit/vision-track).
+
+- [Deployment runbook](https://github.com/xerogrid/Droid-Foundry/blob/pit/vision-track/Pit%20Droid/Vision/DEPLOYMENT.md): fresh install, exact device identity, build/backup/flash, bench, supervised motion, stop and rollback.
+- [Show outcome and handoff](https://github.com/xerogrid/Droid-Foundry/blob/pit/vision-track/Pit%20Droid/Vision/SHOW-HANDOFF.md): tested hardware, 6× commanded speed, saved evidence and disconnect limitations.
+- [Validation boundary](https://github.com/xerogrid/Droid-Foundry/blob/pit/vision-track/Pit%20Droid/Vision/PACKAGE-VALIDATION.md) and [BusyBar/future-work backlog](https://github.com/xerogrid/Droid-Foundry/blob/pit/vision-track/Pit%20Droid/Vision/FEATURE-BACKLOG.md).
+
+Local recovery artifacts remain under `.local/nano-backups/` and ignored
+`.local/show-save-*` directories. Credentials remain in `.local/jetson-vm/`,
+never GitHub. Archives are source/firmware/log snapshots, not a complete VM or
+encrypted credential backup. The running VM disk was not copied. Packaging did
+not restart services, flash hardware or rearm motion.
+
+Final post-show recovery set:
+`.local/show-save-postshow-2026-09-06-HDhm8F/` (both branch bundles, final saved
+Nano logs/backups, original deployed-source snapshot, verified firmware and
+checksums). Earlier `.local/show-save-2026-09-06-Jpzssi/` is retained unchanged.
+
+## Historical initial handoff — superseded, not deployment instructions
 
 ## Owner's intent
 
@@ -55,16 +76,3 @@ servos; this is not the Battle Droid's PCA9685 wiring.
 The current SSH/internet route depends on the Mac's running VM; standalone
 Wi-Fi/Ethernet remains to be configured for untethered field use. See
 [Xavier setup and credentials location](xavier-nx-qemu.md).
-# Current live project handoff — 2026-09-06
-
-The subsequent people/waves/bounded-servo work is saved on the
-[`pit/vision-track` branch of Droid-Foundry](https://github.com/xerogrid/Droid-Foundry/tree/pit/vision-track).
-Start with `Pit Droid/Vision/SHOW-HANDOFF.md` there for the current powered
-configuration, 6× commanded-speed setting, safety limits and restart caveats.
-Earlier notes below describe the initial camera-only handoff.
-
-Local-only recovery artifacts remain under `.local/nano-backups/` and the
-point-in-time `.local/show-save-2026-09-06-Jpzssi/` archive directory. Credentials
-remain in `.local/jetson-vm/`; none are intended for GitHub. The live VM disk
-was not copied while running. Saving/publishing source does not stop or rearm
-the live controller.

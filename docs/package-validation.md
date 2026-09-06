@@ -1,5 +1,11 @@
 # Package validation — 2026-09-06
 
+Post-show packaging audit: the owner reported the subsequent Pit Droid live
+vision/motion test ran great. The completed deployment and acceptance guides
+are linked from [the project handoff](pit-droid-vision-handoff.md). This does not
+change the second-Mac validation limitation below. No new flash or hardware
+control was performed during the documentation/package audit.
+
 - All three cached download SHA-256 hashes match `config/downloads.json`.
 - Offline unit tests cover cloud-init key-only access, generated artifact
   permissions in a mocked fresh setup, existing-VM refusal, valid/invalid
