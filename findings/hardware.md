@@ -2,7 +2,13 @@
 
 Session date: 2026-09-06.
 
-The owner first called the board a Jetson Nano DevKit, then Xavier NX, then Orin. Treat **Orin** as the current identity. The missing J48 jumper and the NVMe work match Orin, not the original Maxwell Nano.
+Current correction: the owner explicitly confirmed **Jetson Xavier NX Developer Kit**.
+Use the Xavier NX/P3509 hardware instructions. The previous Orin identification
+was incorrect; Orin-specific sections below are historical reference only.
+The owner reports an 8 GB microSD, a 4 TB 2280 NVMe, a USB keyboard and webcam,
+and no monitor. Recovery is now confirmed on DARKSTAR as NVIDIA Corp. APX,
+USB ID `0955:7e19`. The owner identified the earlier failure as bridging the wrong
+header; detection succeeded after using the correct J14 recovery pins.
 
 ## Identity checks
 

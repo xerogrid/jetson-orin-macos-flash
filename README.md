@@ -1,4 +1,43 @@
-# Jetson Orin from macOS
+# Jetson Xavier NX bring-up from macOS
+
+**Start here:** [Apple Silicon reproduction runbook](docs/apple-silicon-runbook.md).
+It includes verified downloads, fresh private credentials, QEMU host setup,
+RAM-only device inspection, guarded QSPI/NVMe flashing, expansion and reboot
+verification. The working Xavier NX boots L4T R35.6.4 from its full 4 TB NVMe.
+No private keys, passwords, VM disks or flash images belong in Git.
+
+Next project: [Droid Foundry Pit Droid vision handoff](docs/pit-droid-vision-handoff.md).
+
+## Current hardware correction — 2026-09-06
+
+The owner has confirmed a **Jetson Xavier NX Developer Kit**, superseding the
+Orin identification in the historical notes below. Do not use the Orin JetPack
+7.2 ISO procedure or `scripts/write-jetson-iso.sh` for this board.
+
+- Owner identifies the developer kit as Xavier NX (P3668-0000 module on P3509 carrier).
+- Recovery connection: **Micro-USB** to the host; J14 pins **9 and 10** bridged during power-on.
+- **Recovery confirmed on DARKSTAR: NVIDIA Corp. APX, USB ID 0955:7e19.**
+  Earlier attempts bridged the wrong header; using the correct J14 pins resolved detection.
+- Installed storage reported by owner: **8 GB microSD and 4 TB M.2 2280 NVMe**.
+- Intended install target: NVMe. The 8 GB card is too small for the standard JetPack installation.
+- Software family: **JetPack 5.x / Jetson Linux r35**. NVIDIA lists JetPack 5.1.6;
+  its SD route uses the 5.1.5 image followed by an APT upgrade and may require a QSPI update.
+- A dedicated **QEMU x86 Ubuntu 20.04 VM now runs on DARKSTAR** and sees APX.
+  NVIDIA's tool read the chip ID successfully. The r35.6.4 root filesystem and
+  headless SSH login are prepared. RAM upload succeeded and the target now
+  enumerates as **Linux for Tegra (0955:7035)**. Recovery USB networking and
+  target SSH now work with the VM running as administrator in the foreground.
+  QSPI and the authorized 4 TB Crucial NVMe **flashed successfully**.
+  The installed system boots from NVMe, accepts its saved SSH key, reaches
+  GitHub over HTTPS, loads the NVIDIA GPU driver, and detects Logitech BRIO.
+  The root filesystem was expanded to the full drive (3.6 TiB reported by Linux).
+  See [current QEMU setup](docs/xavier-nx-qemu.md).
+- The old NVMe EFI/exFAT `BC4` layout was replaced. The microSD was not flashed.
+
+Sources: [NVIDIA r35 recovery instructions](https://docs.nvidia.com/jetson/archives/r35.6.0/DeveloperGuide/IN/QuickStart.html),
+[JetPack 5.1.6](https://developer.nvidia.com/embedded/jetpack-sdk-516).
+
+## Historical Orin notes — not applicable to the current board
 
 Lab notes for flashing an NVIDIA Jetson Orin board from a Mac.
 

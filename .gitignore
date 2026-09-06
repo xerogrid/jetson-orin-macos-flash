@@ -5,3 +5,6 @@
 Linux_for_Tegra/
 nvidia_sdk/
 .env
+.local/
+__pycache__/
+*.pyc
