@@ -20,7 +20,7 @@ NVIDIA may require a Developer login for that URL.
 | Installer media | USB flash drive, **16 GB or larger** |
 | Target storage on the Orin | NVMe in M.2 Key M **or** 64 GB+ UHS-1 microSD in the **module** slot |
 | Power | **19 V** barrel brick |
-| Display | DisplayPort + USB keyboard (or UART on J14) |
+| Display | DisplayPort + USB keyboard, **or** UART on J14 (see [headless-uart.md](headless-uart.md)) |
 
 Do **not** write the ISO to the microSD card. Write it to a USB stick. The installer then copies Jetson Linux onto NVMe or SD.
 
@@ -30,9 +30,9 @@ There is no more official Orin Nano SD-card image as of JetPack 7.2.
 
 JetPack 7.2 ISO needs UEFI/QSPI **36.0 or newer**.
 
-1. Plug DisplayPort and a keyboard.
+1. Plug DisplayPort and a keyboard, **or** a 3.3 V USB-TTL adapter on J14 ([headless-uart.md](headless-uart.md)).
 2. Plug 19 V. Green LED next to USB-C should light.
-3. Mash **Esc** at the NVIDIA splash.
+3. Mash **Esc** at the NVIDIA splash (on the monitor or in `screen`).
 4. Read the firmware version at the top of UEFI.
 
 If the version is `36.x` or newer, continue.  

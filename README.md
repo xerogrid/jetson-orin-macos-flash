@@ -17,6 +17,8 @@ NVIDIA SDK Manager and `l4t_initrd_flash.sh` stay **x86_64 Linux**. Do not use t
 
 The supported Mac path: write NVIDIA’s **Jetson ISO** to a USB stick, boot the Orin from that stick, install onto NVMe or microSD. See [docs/macos-iso-flash.md](docs/macos-iso-flash.md).
 
+No monitor or USB keyboard on the Orin: use a **3.3 V USB-TTL** cable on J14. Buy [Adafruit 954](https://www.adafruit.com/product/954). Wiring and `screen` steps: [docs/headless-uart.md](docs/headless-uart.md).
+
 ```bash
 ./scripts/write-jetson-iso.sh ~/Downloads/jetsoninstaller-r39.2.1.iso
 ./scripts/scan-nvidia-usb.sh
@@ -27,6 +29,7 @@ The supported Mac path: write NVIDIA’s **Jetson ISO** to a USB stick, boot the
 ```
 README.md                   this file
 docs/macos-iso-flash.md     JetPack 7.2.1 ISO procedure on macOS
+docs/headless-uart.md       no monitor; Adafruit 954 on J14
 scripts/write-jetson-iso.sh image a USB stick with dd
 scripts/scan-nvidia-usb.sh  look for NVIDIA APX on this Mac
 findings/hardware.md        board identity, power, ports, storage
