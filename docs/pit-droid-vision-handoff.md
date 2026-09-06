@@ -55,3 +55,16 @@ servos; this is not the Battle Droid's PCA9685 wiring.
 The current SSH/internet route depends on the Mac's running VM; standalone
 Wi-Fi/Ethernet remains to be configured for untethered field use. See
 [Xavier setup and credentials location](xavier-nx-qemu.md).
+# Current live project handoff — 2026-09-06
+
+The subsequent people/waves/bounded-servo work is saved on the
+[`pit/vision-track` branch of Droid-Foundry](https://github.com/xerogrid/Droid-Foundry/tree/pit/vision-track).
+Start with `Pit Droid/Vision/SHOW-HANDOFF.md` there for the current powered
+configuration, 6× commanded-speed setting, safety limits and restart caveats.
+Earlier notes below describe the initial camera-only handoff.
+
+Local-only recovery artifacts remain under `.local/nano-backups/` and the
+point-in-time `.local/show-save-2026-09-06-Jpzssi/` archive directory. Credentials
+remain in `.local/jetson-vm/`; none are intended for GitHub. The live VM disk
+was not copied while running. Saving/publishing source does not stop or rearm
+the live controller.
